@@ -27,6 +27,7 @@
     "del": "^1.2.0",
     "gulp-newer": "^0.5.1",
     "gulp-util": "^2.2.14",
+    "gulp-watch": "^4.2.4",
     "ionic": "^1.5.5",
     "run-sequence": "^1.1.1",
     "shelljs": "^0.3.0",

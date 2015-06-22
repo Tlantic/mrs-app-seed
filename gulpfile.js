@@ -9,7 +9,8 @@ var gulp = require('gulp'),
     argv = require('yargs').argv,
     runSequence = require('run-sequence'),
     del = require('del'),
-    newer = require('gulp-newer');
+    newer = require('gulp-newer'),
+    watch = require('gulp-watch');
 
 var paths = {
   src: 'src/',
@@ -140,23 +141,29 @@ gulp.task('watch', ['default', 'watch:src', 'watch:sass'], function() {
   
 });
 
-gulp.task('watch:sass', function() {
-  gulp.watch(
-    [
+gulp.task('watch:sass', function(done) {
+  watch([
       paths.sass + '/**/*.scss',
       paths.config + defaults.brand + '/scss/**/*'
-    ], 
-    ['sass']);
+    ], function () {
+      runSequence('sass');
+    });
+  // gulp.watch(
+  //   [
+  //     paths.sass + '/**/*.scss',
+  //     paths.config + defaults.brand + '/scss/**/*'
+  //   ], 
+  //   ['sass']);
 });
 
-gulp.task('watch:src', function() {
-  gulp.watch(
-    [
+gulp.task('watch:src', function(done) {
+  watch([
       paths.src + '/**/*',
       paths.config + defaults.brand + '/conf.' + defaults.env + '.json', 
       paths.config + defaults.brand + '/www/**/*'
-    ],
-    ['build']);
+    ], function () {
+      runSequence('build');
+    });
 });
 
 gulp.task('install', ['git-check'], function() {
