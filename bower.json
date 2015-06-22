@@ -1,0 +1,29 @@
+{
+  "name": "mrs-app-seed",
+  "version": "1.0.0",
+  "private": true,
+  "authors": [
+    "Pedro Simeão Carvalho <pesimeao@gmail.com>"
+  ],
+  "description": "Tlantic APP seed",
+  "keywords": [
+    "tlantic",
+    "mrs",
+    "app",
+    "seed"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "ionic": "driftyco/ionic-bower#1.0.0",
+    "ngCordova": "~0.1.17-alpha",
+    "mrs-app-core": "https://github.com/Tlantic/mrs-app-core.git#~0.6.0",
+    "mrs-app-i18n": "https://github.com/Tlantic/mrs-app-i18n.git#~0.5.1"
+  }
+}
