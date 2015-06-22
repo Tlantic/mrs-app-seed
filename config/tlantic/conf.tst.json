@@ -1,0 +1,15 @@
+[
+	{
+		"module": "App",
+		"environment": "TST"
+	},
+	{
+		"module": "MRS.App.Core"
+	},
+	{
+		"module": "MRS.App.i18n",
+		"resources": {
+			"path": "i18n/"
+		}
+	}
+]

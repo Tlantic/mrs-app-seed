@@ -4,8 +4,8 @@ node_modules
 # Bower
 
 # Ionic
-platforms/
-plugins/
+/platforms/
+/plugins/
 
 # MRS.App
-www/
+/www/

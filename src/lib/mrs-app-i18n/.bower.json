@@ -1,0 +1,39 @@
+{
+  "name": "mrs-app-i18n",
+  "version": "0.5.1",
+  "homepage": "https://github.com/Tlantic/mrs-app-i18n",
+  "authors": [
+    "Tlantic MRS Team"
+  ],
+  "description": "Tlantic MRS i18n module for Cordova",
+  "main": "./dist/mrs-app-i18n.js",
+  "keywords": [
+    "tlantic",
+    "mrs",
+    "app",
+    "i18n"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "config",
+    "!module.conf.json",
+    "src",
+    "docs",
+    "scripts",
+    "test",
+    "tests"
+  ],
+  "_release": "0.5.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.5.1",
+    "commit": "334c1b0e2ed398b84d6d8670afedff6fafd72869"
+  },
+  "_source": "https://github.com/Tlantic/mrs-app-i18n.git",
+  "_target": "~0.5.1",
+  "_originalSource": "https://github.com/Tlantic/mrs-app-i18n.git",
+  "_direct": true
+}
