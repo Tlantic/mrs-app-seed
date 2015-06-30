@@ -1,17 +1,17 @@
 {
-  "name": "mrs-app-core",
+  "name": "mrs-app-settings",
   "version": "1.0.0",
-  "homepage": "https://github.com/Tlantic/mrs-app-core.git",
+  "homepage": "https://github.com/Tlantic/mrs-app-settings",
   "authors": [
     "Tlantic MRS Team"
   ],
-  "description": "Tlantic MRS-App-Core",
-  "main": "./dist/mrs-app-core.js",
+  "description": "Tlantic MRS settings module for Cordova",
+  "main": "./dist/mrs-app-settings.js",
   "keywords": [
     "tlantic",
     "mrs",
     "app",
-    "core"
+    "settings"
   ],
   "license": "MIT",
   "ignore": [
@@ -21,13 +21,11 @@
     "config",
     "!module.conf.json",
     "src",
-    "scripts",
     "docs",
-    "reports",
+    "scripts",
     "test",
     ".gitignore",
     ".jshintrc",
-    "gruntfile.js",
-    "LICENCE"
+    "gruntfile.js"
   ]
 }

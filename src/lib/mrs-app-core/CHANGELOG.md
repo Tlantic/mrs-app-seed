@@ -1,6 +1,16 @@
 MRS.App.Core release notes
 ==============================================
 
+## v1.0.0
+This release changes the version numeration method to start in 1.
+
+Also, it adds a new module settings for kernel.
+
+### Changes
+* Changed version to 1.x.x
+* Added settings module to kernel
+
+
 ## v0.6.0
 This release includes a new module *kernel* to bootstrap apps.
 

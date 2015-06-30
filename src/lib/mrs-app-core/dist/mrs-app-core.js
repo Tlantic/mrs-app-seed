@@ -1,4 +1,4 @@
-/*! mrs-app-core - v0.6.0 - 2015-06-19 17:01:42 GMT */
+/*! mrs-app-core - v1.0.0 - 2015-06-30 13:01:55 GMT */
 /**
  * The 'MRS.App.Kernel' module is a set of tools to speedup modules and services built within MRS.App applications.
  * 
@@ -15,7 +15,8 @@ window.tlantic = (function bootMRSAppKernel() {
 
     return {
         // io: new MRSAppKernel_IOPack(),
-        // boot: new MRSAppKernel_BootPack()
+        // boot: new MRSAppKernel_BootPack(),
+        // settings: new MRSAppKernel_SettingsPack()
     };
 }());
 
@@ -82,48 +83,56 @@ MRSAppKernel_BootPack.prototype.loadAngApp = function BootPackloadAngApp(module,
                 self.bootConfig = configFile;
             }
             
-            // loading config file
-            window.tlantic.io.readJSONFile(
+            function onLoadConfigFileSuccess(data) {
+                var key,
+                    configItem,
+                    configKey;
                 
-                // configuration file
-                configFile,
-                
-                // successfull
-                function onLoadAngAppSuccess(data) {
-                    var key,
-                        configItem,
-                        configKey;
-                    
-                    for (key in data) {
-                        configItem = data[key];
-                        if (configItem.module !== undefined) {
-                            try {
-                                console.log("[BOOT] :", configItem.module, JSON.stringify(configItem));
-                                configKey = "$" + configItem.module.toLowerCase().replace(/\./gi,'') + "Config";
-                                angular.module(configItem.module).constant(configKey, configItem);
-                            } catch (e) {
-                                console.error(e);
-                            }
+                for (key in data) {
+                    configItem = data[key];
+                    if (configItem.module !== undefined) {
+                        try {
+                            console.log("MRS-APP-BOOT", configItem.module, JSON.stringify(configItem));
+                            
+                            // Check if this exists in localstorage
+                            configItem = window.tlantic.settings.get(configItem.module) || configItem;
+                            
+                            // Build final config key to be registered as constant
+                            configKey = "$" + configItem.module.toLowerCase().replace(/\./gi,'') + "Config";
+                            
+                            // Save as constant for angular module
+                            angular.module(configItem.module).constant(configKey, configItem);
+                        } catch (e) {
+                            console.error("MRS-APP-BOOT", e);
                         }
                     }
-                   
-                    // booting app
-                    angular.bootstrap(document, [moduleName]);
-                    
-                    // calling callback
-                    if (cbSuccess) {
-                        cbSuccess();
-                    }
-                },
-                
-                // error reading config file
-                function onLoadAngAppError(status) {
-                    if (cbError) {
-                        cbError(status);
-                    } else {
-                        throw "ERROR LOADING <" + configFile + "> : " + status;
-                    }
                 }
+               
+                // booting app
+                angular.bootstrap(document, [moduleName]);
+                
+                // calling callback
+                if (cbSuccess) {
+                    cbSuccess();
+                }
+            }
+            
+            function onLoadConfigFileError(status) {
+                if (cbError) {
+                    cbError(status);
+                } else {
+                    throw "ERROR LOADING <" + configFile + "> : " + status;
+                }
+            }
+            
+            // loading config file
+            window.tlantic.io.readJSONFile(
+                // configuration file
+                configFile,
+                // successfull
+                onLoadConfigFileSuccess,
+                // error reading config file
+                onLoadConfigFileError
             );
         };
     
@@ -197,6 +206,103 @@ MRSAppKernel_IOPack.prototype.readJSONFile = function (filePath, cbSuccess, cbEr
 **/
 window.tlantic.io = new MRSAppKernel_IOPack();
 /**
+ * Settings Kernel Pack
+ * This kernel pack includes some auxiliary methods to help app settings management. 
+ * @class MRSAppKernel_SettingsPack
+ * @constructor
+ * @since 1.0.0
+ */
+function MRSAppKernel_SettingsPack() {
+	'use strict';
+	
+    this.buildKey = function(key) {
+        return 'MRSAPPSETTINGS_' + key.toUpperCase().replace(/\./gi,'');
+    };
+	
+	this.buildValue = function(value) {
+		return {
+			timestamp: (new Date()).toISOString(),
+			data: value
+		};
+	};
+}
+
+
+/**
+ * Load a setting from localstorage
+ * 
+ * @method get
+ * @static
+ * @param {string} key Setting key name
+ * @return {string | object}
+ */
+MRSAppKernel_SettingsPack.prototype.get = function getSettings(key) {
+	var result;
+	
+	// Check if key exists
+	if (typeof key !== 'string')
+		return undefined;
+	
+	// Get raw data from localstorage
+	try {
+		key = this.buildKey(key);
+		result = window.localStorage.getItem(key);
+	} catch(error) {
+		console.error('MRS-APP-SETTINGS', 'get', error);
+	}
+	
+	// Check if it exists
+	if (result === undefined)
+		return result;
+	
+	// Parse json and get only the data property
+	try {
+		result = JSON.parse(result);
+		result = result.data;
+	} catch(error) {
+		console.log(result);
+		console.error('MRS-APP-SETTINGS', 'get-parse', error);
+	}
+	
+	return result;
+};
+
+/**
+ * Set/save a value in localstorage
+ * 
+ * @method set
+ * @static
+ * @param {string} key Setting key name
+ * @param {string | object} value Value to save, associated with key
+ */
+MRSAppKernel_SettingsPack.prototype.set = function setSettings(key, value) {
+	
+	// Check if key and value exists
+	if (typeof key !== 'string' || !value)
+		return undefined;
+		
+	// Build key and value
+    try {
+		key = this.buildKey(key);
+		value = JSON.stringify(this.buildValue(value));
+		
+        window.localStorage.setItem(key, value);
+    } catch(error) {
+        console.error('MRS-APP-SETTINGS', 'set', error);
+    }
+	
+	return value;
+};
+
+
+
+/**
+@module window.tlantic
+@submodule window.tlantic.settings
+@main window.tlantic
+**/
+window.tlantic.settings = new MRSAppKernel_SettingsPack();
+/**
 The 'mrsAppCore' module is a set of tools and services made to provide a common infrastructure necessary
 to build new rich web or mobile applications.
 
@@ -212,6 +318,7 @@ angular.module('MRS.App.Core', []);
 angular.module('MRS.App.Core').config(['$mrsappcoreConfig', '$provide', '$httpProvider', function (config, $provide, $httpProvider) {
     'use strict';
     var prov,
+        mergedConfig,
         defaultConfig = {
             log: {
                 debug: true,
@@ -232,7 +339,8 @@ angular.module('MRS.App.Core').config(['$mrsappcoreConfig', '$provide', '$httpPr
         };
 
     // merge config with default
-    angular.extend(config, defaultConfig, config);
+    mergedConfig = angular.extend({}, defaultConfig, config);
+    angular.extend(config, mergedConfig);
 
     // adding $http interceptors
     $httpProvider.interceptors.push('authenticationInterceptor');
