@@ -95,7 +95,7 @@ MRSAppKernel_BootPack.prototype.loadAngApp = function BootPackloadAngApp(module,
                             console.log("MRS-APP-BOOT", configItem.module, JSON.stringify(configItem));
                             
                             // Check if this exists in localstorage
-                            configItem = window.tlantic.settings.get(configItem.module) || configItem;
+                            configItem = window.tlantic.settings.get(configItem.code) || configItem;
                             
                             // Build final config key to be registered as constant
                             configKey = "$" + configItem.module.toLowerCase().replace(/\./gi,'') + "Config";
@@ -252,7 +252,7 @@ MRSAppKernel_SettingsPack.prototype.get = function getSettings(key) {
 	}
 	
 	// Check if it exists
-	if (result === undefined)
+	if (!result)
 		return result;
 	
 	// Parse json and get only the data property
