@@ -3,7 +3,7 @@
 (function app(angular, cordova) {
   'use strict';
   
-  angular.module('App', ['ionic', 'MRS.App.Core', 'MRS.App.i18n']);
+  angular.module('App', ['ionic', 'MRS.App.Core', 'MRS.App.i18n', 'MRS.App.Settings', 'MRS.App.GoogleAnalytics']);
   
   angular.module('App').config(['$appConfig', '$stateProvider', '$urlRouterProvider', '$compileProvider', myAppConfig]);
   angular.module('App').run(['$window', '$appConfig', '$ionicPlatform', 'i18nTranslate', myAppRun]);
@@ -23,7 +23,6 @@
     
     // Configure href policy
     $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|javascript|geo|maps):/);
-    
   }
   
   function myAppRun(window, $config, $ionicPlatform, $i18n) {
@@ -47,7 +46,6 @@
           console.log("### Language loaded");
       });
     }
-   
   }
   
 }(window.angular, window.cordova));

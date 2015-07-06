@@ -1,15 +1,39 @@
 [
 	{
 		"module": "App",
+		"code": "APP",
 		"environment": "DEV"
 	},
 	{
-		"module": "MRS.App.Core"
+		"module": "MRS.App.Core",
+		"code": "MRS-APP-CORE",
+		"log": {
+            "debug": true,
+            "saveToFile": false
+        }
 	},
 	{
 		"module": "MRS.App.i18n",
+		"code": "MRS-APP-I18N",
 		"resources": {
 			"path": "i18n/"
 		}
+	},
+	{
+		"module": "MRS.App.Settings",
+		"code": "MRS-APP-SETTINGS",
+		"modules": ["APP", "MRS-APP-CORE", "MRS-APP-I18N", "MRS-APP-SETTINGS", "MRS-APP-GOOGLEANALYTICS"],
+		"endpoints": {
+			"check": {
+				"method": "POST",
+				"url": "/settings"
+			}
+		}
+	},
+	{
+		"module": "MRS.App.GoogleAnalytics",
+		"code": "MRS-APP-GOOGLEANALYTICS",
+		"accountId": "",
+		"scriptPath": "lib/mrs-app-ga/dependencies/analytics.js"
 	}
 ]
