@@ -27,6 +27,7 @@
     "mrs-app-i18n": "https://github.com/Tlantic/mrs-app-i18n.git#~0.5.1",
     "mrs-app-settings": "https://github.com/Tlantic/mrs-app-settings.git#~1.0.0",
     "mrs-app-design": "https://github.com/Tlantic/mrs-app-design.git",
-    "mrs-app-ga": "https://github.com/Tlantic/mrs-app-ga.git#~0.5.1"
+    "mrs-app-ga": "https://github.com/Tlantic/mrs-app-ga.git#~0.5.1",
+    "mrs-app-clientdetector": "https://github.com/Tlantic/mrs-app-clientdetector.git#~1.0.0"
   }
 }
