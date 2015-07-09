@@ -21,7 +21,7 @@
     "tests"
   ],
   "devDependencies": {
-    "ionic": "driftyco/ionic-bower#1.0.0",
+    "ionic": "driftyco/ionic-bower#1.0.1",
     "ngCordova": "~0.1.17-alpha",
     "mrs-app-core": "https://github.com/Tlantic/mrs-app-core.git#~1.0.0",
     "mrs-app-i18n": "https://github.com/Tlantic/mrs-app-i18n.git#~0.5.1",
