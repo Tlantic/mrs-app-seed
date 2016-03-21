@@ -1,0 +1,14 @@
+{
+  "name": "mrs-app-design",
+  "homepage": "https://github.com/Tlantic/mrs-app-design",
+  "_release": "cdecfbf1c0",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "cdecfbf1c0eedc11e3f3d7efd6a26cc49919243b"
+  },
+  "_source": "https://github.com/Tlantic/mrs-app-design.git",
+  "_target": "*",
+  "_originalSource": "https://github.com/Tlantic/mrs-app-design.git",
+  "_direct": true
+}

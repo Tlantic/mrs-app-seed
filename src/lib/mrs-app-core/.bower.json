@@ -1,0 +1,43 @@
+{
+  "name": "mrs-app-core",
+  "version": "1.0.0",
+  "homepage": "https://github.com/Tlantic/mrs-app-core.git",
+  "authors": [
+    "Tlantic MRS Team"
+  ],
+  "description": "Tlantic MRS-App-Core",
+  "main": "./dist/mrs-app-core.js",
+  "keywords": [
+    "tlantic",
+    "mrs",
+    "app",
+    "core"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "config",
+    "!module.conf.json",
+    "src",
+    "scripts",
+    "docs",
+    "reports",
+    "test",
+    ".gitignore",
+    ".jshintrc",
+    "gruntfile.js",
+    "LICENCE"
+  ],
+  "_release": "1.0.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v1.0.0",
+    "commit": "6713cb185588e2baffc7ab7302ced449d7275fd1"
+  },
+  "_source": "https://github.com/Tlantic/mrs-app-core.git",
+  "_target": "~1.0.0",
+  "_originalSource": "https://github.com/Tlantic/mrs-app-core.git",
+  "_direct": true
+}
