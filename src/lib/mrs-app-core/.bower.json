@@ -1,6 +1,6 @@
 {
   "name": "mrs-app-core",
-  "version": "1.0.0",
+  "version": "1.1.5",
   "homepage": "https://github.com/Tlantic/mrs-app-core.git",
   "authors": [
     "Tlantic MRS Team"
@@ -30,14 +30,13 @@
     "gruntfile.js",
     "LICENCE"
   ],
-  "_release": "1.0.0",
+  "_release": "1.1.5",
   "_resolution": {
     "type": "version",
-    "tag": "v1.0.0",
-    "commit": "6713cb185588e2baffc7ab7302ced449d7275fd1"
+    "tag": "v1.1.5",
+    "commit": "d5aa695a71688b328c78f59a385477b4f39af34f"
   },
   "_source": "https://github.com/Tlantic/mrs-app-core.git",
-  "_target": "~1.0.0",
-  "_originalSource": "https://github.com/Tlantic/mrs-app-core.git",
-  "_direct": true
+  "_target": "~1.1.5",
+  "_originalSource": "git+https://github.com/Tlantic/mrs-app-core.git"
 }

@@ -35,6 +35,5 @@
   },
   "_source": "https://github.com/Tlantic/mrs-app-clientdetector.git",
   "_target": "~1.0.0",
-  "_originalSource": "https://github.com/Tlantic/mrs-app-clientdetector.git",
-  "_direct": true
+  "_originalSource": "git+https://github.com/Tlantic/mrs-app-clientdetector.git"
 }

@@ -21,13 +21,14 @@
     "tests"
   ],
   "devDependencies": {
-    "ionic": "driftyco/ionic-bower#1.0.1",
-    "ngCordova": "~0.1.17-alpha",
-    "mrs-app-core": "https://github.com/Tlantic/mrs-app-core.git#~1.0.0",
-    "mrs-app-i18n": "https://github.com/Tlantic/mrs-app-i18n.git#~0.5.1",
-    "mrs-app-settings": "https://github.com/Tlantic/mrs-app-settings.git#~1.0.0",
-    "mrs-app-design": "https://github.com/Tlantic/mrs-app-design.git",
-    "mrs-app-ga": "https://github.com/Tlantic/mrs-app-ga.git#~0.5.1",
-    "mrs-app-clientdetector": "https://github.com/Tlantic/mrs-app-clientdetector.git#~1.0.0"
+    "ionic": "~1.2.4",
+    "angular": "~1.5.0",
+    "angular-i18n": "~1.5.0",
+    "angular-animate": "~1.5.0",
+    "angular-sanitize": "~1.5.0",
+    "ngCordova": "~0.1.24-alpha",
+    "mrs-app-core": "git+https://github.com/Tlantic/mrs-app-core.git#~1.1.5",
+    "mrs-app-i18n": "git+https://github.com/Tlantic/mrs-app-i18n.git#~1.0.0",
+    "mrs-app-clientdetector": "git+https://github.com/Tlantic/mrs-app-clientdetector.git#~1.0.0"
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "mrs-app-i18n",
-  "version": "0.5.1",
+  "version": "1.0.0",
   "homepage": "https://github.com/Tlantic/mrs-app-i18n",
   "authors": [
     "Tlantic MRS Team"
@@ -26,13 +26,13 @@
     "test",
     "tests"
   ],
-  "_release": "0.5.1",
+  "_release": "1.0.0",
   "_resolution": {
     "type": "version",
-    "tag": "v0.5.1",
-    "commit": "334c1b0e2ed398b84d6d8670afedff6fafd72869"
+    "tag": "v1.0.0",
+    "commit": "6b465534f3e222cdc6260edc2e9a8b9588f48a5f"
   },
   "_source": "https://github.com/Tlantic/mrs-app-i18n.git",
-  "_target": "~0.5.1",
-  "_originalSource": "https://github.com/Tlantic/mrs-app-i18n.git"
+  "_target": "~1.0.0",
+  "_originalSource": "git+https://github.com/Tlantic/mrs-app-i18n.git"
 }
